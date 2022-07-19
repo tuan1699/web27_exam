@@ -1,0 +1,19 @@
+.container {
+    width: 400px;
+  }
+  
+  .d-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field {
+    padding: 5px 0;
+  }
+  
+  input,
+  select,
+  option {
+    padding: 5px;
+  }
+  
