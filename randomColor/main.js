@@ -17,8 +17,9 @@ function setColor() {
     const btn = document.querySelector("button");
     const body = document.querySelector("body");
     body.style.backgroundImage = `linear-gradient(${setDeg()}deg,${setColor()},${setColor()})`;
+    
   
-    const decr = document.querySelector(".property");
-    decr.textContent = `background-image: linear-gradient(${setDeg()}deg, ${setColor()}, ${setColor()})`;
+    // const decr = document.querySelector(".property");
+    // decr.textContent = `background-image: linear-gradient(${setDeg()}deg, ${setColor()}, ${setColor()})`;
   }
   
