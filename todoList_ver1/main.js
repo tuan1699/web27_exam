@@ -2,7 +2,7 @@ let input = document.querySelector(".entered-list");
 let btn = document.querySelector(".btn-add");
 let list_item = document.querySelector(".list-item");
 let item = document.getElementsByClassName("item");
-let test = document.querySelector(".test");
+let clear = document.querySelector(".clear");
 // add btn disable
 
 input.addEventListener("keyup", function () {
@@ -23,6 +23,7 @@ function addItem() {
     newItem.classList.add("item");
     newItem.innerHTML = `
         <p>${input.value}</p>
+        <span class="done"></span>
         <div class="item-icon">
           <i class="fa-solid fa-square-check check"></i>
           <i class="fa-solid fa-trash-can delete"></i>
@@ -58,11 +59,21 @@ list_item.addEventListener("click", function (e) {
   let status = document.querySelector(".status");
   if (e.target.classList.contains("fa-square-check")) {
     e.target.parentElement.parentElement.classList.toggle("completed");
-  }
-  for (i = 0; i < item.length; i++) {
-    if (item[i].classList.contains("completed")) {
-      count -= 1;
-      status.innerText = `You have ${count} pending task`;
+    for (i = 0; i < item.length; i++) {
+      let done = document.getElementsByClassName("done");
+      if (item[i].classList.contains("completed")) {
+        count = count - 1;
+        status.innerText = `You have ${count} pending task`;
+        done[i].innerText = "Done !!!";
+      } else {
+        done[i].innerText = "";
+      }
     }
   }
+});
+
+clear.addEventListener("click", function () {
+  let status = document.querySelector(".status");
+  list_item.innerHTML = "";
+  status.innerText = `You have ${item.length} pending task`;
 });
