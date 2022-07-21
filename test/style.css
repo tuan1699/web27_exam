@@ -46,16 +46,6 @@ body {
   margin-bottom: 20px;
 }
 
-.done {
-  color: rgb(0, 255, 38);
-  font-weight: bolder;
-}
-
-p {
-  width: 200px;
-  text-align: left;
-}
-
 input {
   width: 80%;
   padding: 8px;
@@ -90,14 +80,9 @@ input {
   text-decoration: line-through;
 }
 
-.delete {
+.item-icon {
   font-size: 20px;
   color: red;
-}
-
-.check {
-  font-size: 20px;
-  color: rgb(0, 255, 38);
 }
 
 .item-icon i:hover {
