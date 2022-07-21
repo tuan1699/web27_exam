@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: linear-gradient(
+    346deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 220, 255, 1) 100%,
+    rgba(162, 154, 31, 0.8410714627647934) 100%
+  );
+  min-height: 100vh;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.container {
+  width: 500px;
+  background-color: #fff;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 150px;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  padding: 20px 0;
+}
+
+.content {
+  padding: 15px;
+}
+
+.list-input {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 80%;
+  padding: 8px;
+}
+
+.btn-add {
+  width: 20%;
+  background-color: #6495ed;
+  border: none;
+  margin-left: 4px;
+  opacity: 0.6;
+  cursor: pointer;
+  pointer-events: none;
+  color: #fff;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.btn-add.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.completed p {
+  text-decoration: line-through;
+}
+
+.item-icon {
+  font-size: 20px;
+  color: red;
+}
+
+.item-icon i:hover {
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear {
+  margin-left: 5px;
+  border: none;
+  padding: 5px 10px;
+  background-color: rgb(233, 76, 76);
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
