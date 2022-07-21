@@ -90,7 +90,12 @@ input {
   text-decoration: line-through;
 }
 
-.item-icon {
+.delete {
+  font-size: 20px;
+  color: red;
+}
+
+.check {
   font-size: 20px;
   color: red;
 }
