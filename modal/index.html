@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Modal</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .text-align {
+        text-align: center;
+      }
+      .btn-buy {
+        cursor: pointer;
+      }
+
+      .container {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      .modal {
+        position: relative;
+        width: 900px;
+        margin: auto;
+        background-color: #fff;
+        animation: modalFadeIn ease 0.4s;
+      }
+
+      .header {
+        height: 80px;
+        background-color: rgb(0, 150, 136);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: #fff;
+        letter-spacing: 5px;
+      }
+
+      .body {
+        padding: 20px;
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        color: red;
+      }
+
+      .icon {
+        margin-right: 10px;
+      }
+
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+      }
+
+      input {
+        padding: 4px;
+      }
+
+      .pay {
+        width: 100%;
+        color: #fff;
+        background-color: rgb(0, 150, 136);
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      .show {
+        display: flex;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          transform: translateY(-200px);
+          opacity: 0.6;
+        }
+        to {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-align"><button class="btn-buy">Buy Tickets</button></div>
+
+    <div class="container">
+      <div class="modal">
+        <div class="modal-wrapper">
+          <div class="header">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <p>Tickets</p>
+            <i class="fa-solid fa-xmark close"></i>
+          </div>
+          <div class="body">
+            <form action="">
+              <div class="form-field">
+                <label for=""
+                  ><i class="icon fa-solid fa-cart-arrow-down"></i>Tickets, $15
+                  per person</label
+                >
+                <input type="text" name="" id="" />
+              </div>
+              <div class="form-field">
+                <label for=""
+                  ><i class="icon fa-solid fa-user-large"></i>Send to</label
+                >
+                <input type="text" name="" id="" />
+              </div>
+              <button class="pay" type="submit">PAY</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const btnBuy = document.querySelector(".btn-buy");
+      const container = document.querySelector(".container");
+      const closeBtn = document.querySelector(".close");
+      const modal = document.querySelector(".modal");
+
+      btnBuy.addEventListener("click", function (e) {
+        container.classList.add("show");
+      });
+
+      closeBtn.addEventListener("click", function (e) {
+        container.classList.remove("show");
+      });
+
+      container.addEventListener("click", function (e) {
+        container.classList.remove("show");
+      });
+
+      modal.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+    </script>
+  </body>
+</html>

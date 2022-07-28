@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3>To Do List App Ver 2.0</h3>
+      <div class="list-head">
+        <form action="" class="todo" name="todo">
+          <input type="text" name="title" id="" />
+          <button type="submit" name="add" class="add">Add</button>
+        </form>
+
+        <div class="list-item">
+          <!-- <div class="item">
+            <input type="checkbox" name="" id="" />
+            <span>Công việc 1</span>
+            <button>Delete</button>
+          </div>
+
+          <div class="item completed">
+            <input type="checkbox" name="" id="" />
+            <span>Công việc 2</span>
+            <button class="delete">Delete</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const todos = [
+        {
+          id: 1,
+          title: "Create To Do List",
+          completed: true,
+        },
+        {
+          id: 2,
+          title: "Study ES6",
+          completed: false,
+        },
+      ];
+
+      const form = document.forms.todo;
+      const list = document.querySelector(".list-item");
+      const add = document.querySelector(".add");
+
+      console.log(form);
+      // render todoList form Arr
+      function renderTodolist(todos) {
+        const item = todos.map(function (todo) {
+          return `<div class="${!todo.completed ? "item" : "item completed"}"" >
+            <input onchange = (completedTodo(${
+              todo.id
+            })) type="checkbox" ${todo.completed ? "checked" : ""} />
+            <span>${todo.title}</span>
+            <button onclick = (deleteItem(${todo.id}))>Delete</button>
+          </div>`;
+        });
+
+        list.innerHTML = item.join("");
+      }
+      // Add Event onclick to input checkbox
+      function completedTodo(id) {
+        const todoId = todos.find(function (todo) {
+          return todo.id == id;
+        });
+
+        todoId.completed = !todoId.completed;
+        renderTodolist(todos);
+      }
+
+      renderTodolist(todos);
+
+      // Get todo item from input
+
+      function createTodo() {
+        // tạo ra một mảng mới chứa các giá trị được người dùng nhập vào
+        const newItem = {
+          id: Math.floor(Math.random() * 100),
+          title: form.elements.title.value,
+          completed: false,
+        };
+
+        todos.push(newItem);
+
+        renderTodolist(todos);
+      }
+
+      // Add Event submit when submit form by enter button
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (this.elements.title.value !== "") {
+          createTodo();
+        } else alert("Please enter your work");
+
+        this.elements.title.value = "";
+      });
+
+      const deletebtn = document.getElementsByClassName("delete");
+      // Delete Element
+      function deleteItem(id) {
+        // với đối số todo.id nhận được khi click, lấy đối số đó tìm chỉ mục (index) của
+        // element có "id" bằng đối số truyền vào
+        const index = todos.findIndex(function (todo) {
+          return todo.id === id;
+        });
+        todos.splice(index, 1);
+        renderTodolist(todos);
+      }
+    </script>
+  </body>
+</html>

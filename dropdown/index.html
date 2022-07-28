@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DropDown Button</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 80%;
+        padding: 4px 8px;
+        cursor: pointer;
+      }
+
+      .container {
+        width: 150px;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .drop-content {
+        display: none;
+      }
+
+      .content {
+        padding: 4px 8px;
+        background-color: rgb(200, 198, 195);
+        margin: 2px 0;
+        cursor: pointer;
+      }
+
+      .content:hover {
+        background-color: rgb(106, 103, 103);
+        color: #fff;
+      }
+
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <button class="btn">Dropdown</button>
+        <div class="drop-content">
+          <p class="content">Home</p>
+          <p class="content">About</p>
+          <p class="content">Contact</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const dropdown = document.querySelector(".drop-content");
+      const btn = document.querySelector(".btn");
+      btn.addEventListener("click", function () {
+        dropdown.classList.toggle("show");
+      });
+
+      window.addEventListener("click", function (e) {
+        if (!e.target.matches(".btn")) {
+          if (dropdown.classList.contains("show")) {
+            dropdown.classList.remove("show");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
